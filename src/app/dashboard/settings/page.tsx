@@ -88,7 +88,7 @@ export default function SettingsPage() {
                 </div>
               </div>
               <div className="space-y-2">
-                <p className="text-sm text-gray-600">
+                <p className="text-sm text-white-600">
                   Input code manually to your authenticator app:
                 </p>
                 <div className="relative">

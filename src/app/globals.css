@@ -14,7 +14,6 @@ body {
   backdrop-filter: blur(12px);
   position: relative;
   overflow: hidden;
-  color: rgba(255, 255, 255, 0.87);
 }
 
 body::before {
@@ -115,25 +114,67 @@ body::before {
   }
 }
 
+body,
+input,
+select,
+textarea,
+label,
+table,
+.dropdown-content,
+a,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--text-color, rgba(255, 255, 255, 0.87)) !important;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --text-color: rgba(0, 0, 0, 0.87);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text-color: rgba(255, 255, 255, 0.87);
+  }
+}
+
+.light-theme {
+  --text-color: rgba(0, 0, 0, 0.87);
+}
+
+.dark-theme {
+  --text-color: rgba(255, 255, 255, 0.87);
+}
+
 input,
 select,
 textarea {
-  color: rgba(255, 255, 255, 0.87) !important;
-  background-color: rgba(255, 255, 255, 0.05) !important;
-  border-color: rgba(255, 255, 255, 0.1) !important;
+  background-color: var(--input-bg, rgba(255, 255, 255, 0.05)) !important;
+  border-color: var(--border-color, rgba(255, 255, 255, 0.1)) !important;
 }
 
-label {
-  color: rgba(255, 255, 255, 0.87) !important;
-}
-
-table {
-  color: rgba(255, 255, 255, 0.87) !important;
+.light-theme input,
+.light-theme select,
+.light-theme textarea {
+  --input-bg: rgba(0, 0, 0, 0.05);
+  --border-color: rgba(0, 0, 0, 0.1);
 }
 
 .dropdown-content {
   background-color: rgba(30, 30, 30, 0.95) !important;
   color: rgba(255, 255, 255, 0.87) !important;
+}
+
+button[class*="bg-white"],
+[role="button"][class*="bg-white"],
+select[class*="bg-white"],
+.dropdown-content[class*="bg-white"] {
+  color: rgba(0, 0, 0, 0.87) !important;
 }
 
 a {

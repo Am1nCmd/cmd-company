@@ -18,6 +18,7 @@ import {
 import { formatDistance } from "date-fns";
 import { useRouter } from "next/navigation";
 import prisma from "@/lib/prisma";
+import Link from "next/link";
 
 async function deleteNews(id: string) {
   // "use server"
@@ -73,7 +74,11 @@ export default function NewsTable({ news }: NewsTableProps) {
         <TableBody>
           {news.map((item) => (
             <TableRow key={item.id}>
-              <TableCell>{item.title}</TableCell>
+              <TableCell>
+                <Link className="underline" href={`/dashboard/news/${item.id}`}>
+                  {item.title}
+                </Link>
+              </TableCell>
               <TableCell>
                 {formatDistance(new Date(item.createdAt), new Date(), {
                   addSuffix: true,
