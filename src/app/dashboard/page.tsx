@@ -13,7 +13,7 @@ export default async function DashboardPage() {
 
   const news = await prisma.news.findMany({
     where: {
-      authorId: session.user.id,
+      authorId: session.user.id ?? "",
     },
     include: {
       category: true,

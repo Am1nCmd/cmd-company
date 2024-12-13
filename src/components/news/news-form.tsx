@@ -126,7 +126,11 @@ export default function NewsForm({ news, categories }: NewsFormProps) {
               <FormItem>
                 <FormLabel>Category</FormLabel>
                 <FormControl>
-                  <select {...field} className="input">
+                  <select
+                    {...field}
+                    className="input"
+                    value={field.value || ""}
+                  >
                     <option value="">Select Category</option>
                     {categories.map((category) => (
                       <option key={category.id} value={category.id}>
